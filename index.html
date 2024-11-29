@@ -11,13 +11,13 @@
     <div class="container mt-4">
       <section>
         <h2 class="fs-2 mb-3">AJAX traerá un texto de un archivo txt</h2>
-        <button class="btn btn-success" onclick="traerDatos()">Traer txt</button>
+        <button id="btnTxt" class="btn btn-success">Traer txt</button>
         <h4 class="fs-4 mt-4" id="respuesta"></h4>
       </section>
       
       <section class="mt-4 pt-5">
         <h2 class="fs-2 mb-3">AJAX traerá un 3 objetos de un array de un archivo Json</h2>
-        <button class="btn btn-info" onclick="traerDatosJson()">Traer Json</button>
+        <button id="btnJson" class="btn btn-info">Traer Json</button>
 
         <table class="table mt-4">
           <thead>
@@ -35,9 +35,9 @@
 
       <section class="mt-4 pt-5">
         <h2 class="fs-2 mb-3">Consumiendo una API pública con AJAX</h2>
-          <button class="btn btn-primary me-5" onclick="traerEuro()">Valor Euro</button>  
-          <button class="btn btn-secondary" onclick="traerDolar()">Valor Dólar</button>
-          <ul class="mt-3" id="ulMoneda"></ul>   
+          <button class="btn btn-primary me-5" onclick="traerDatosApi('euro')">Valor Euro</button>  
+          <button class="btn btn-secondary" onclick="traerDatosApi('dolar')">Valor Dólar</button>
+          <ul class="my-3" id="ulMoneda"></ul>   
       </section>
     </div>
 

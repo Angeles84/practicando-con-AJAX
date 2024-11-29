@@ -1,5 +1,8 @@
 //Trae el archivo txt
-function traerDatos () {
+const btnTxt = document.getElementById("btnTxt");
+btnTxt.onclick = traerDatosTxt;
+
+function traerDatosTxt () {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
     document.getElementById("respuesta").innerHTML = this.responseText;
@@ -9,6 +12,8 @@ function traerDatos () {
 }
 
 //Trae el archivo Json
+const btnJson = document.getElementById("btnJson");
+btnJson.onclick = traerDatosJson;
 var contador = 0;
 
 function traerDatosJson () {
@@ -33,14 +38,6 @@ function traerDatosJson () {
   xhttp.send();
 }
 
-const traerDolar = () => {
-  traerDatosApi('dolar');
-}
-
-const traerEuro = () => {
-  traerDatosApi('euro');
-}
-
 //Trae datos de una API pública
  const traerDatosApi = (moneda) => {
   const xhttp = new XMLHttpRequest(); 
@@ -52,8 +49,14 @@ const traerEuro = () => {
     ulDolar.innerHTML = "";
     console.log(datos.serie)
 
+    let i = 0;
+
     for(let dato of datos.serie) {
+      i++;
       ulDolar.innerHTML += `<li>${dato.fecha.substr(0,10)} | $${dato.valor}</li>`;
+      if (i>=10) {
+        break;
+      }
     } 
   }
   xhttp.open("GET", url, true);
